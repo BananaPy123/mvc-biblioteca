@@ -119,7 +119,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../imagens/biblioteca-img.jpeg);
+    background-image: url(../imagens/biblioteca-img2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -170,6 +170,67 @@ body {
     margin-bottom: 10px;
     color: #0e8d47;
 }
+
+.titulo-login {  
+    animation: balançar 5s infinite ease-in-out;  
+}  
+@keyframes balançar {  
+    0%, 100% { transform: rotate(1deg); }  
+    50% { transform: rotate(-1deg); }  
+}  
+
+.magic-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* Ajuste conforme sua imagem de fundo */
+    overflow: hidden;
+  }
+  
+  /* Partículas genéricas (vagalumes, folhas, pétalas) */
+  .particle {
+    position: absolute;
+    opacity: 0;
+    animation: fadeInOut 8s ease-in-out infinite;
+  }
+  
+  /* Vagalumes */
+  .firefly {
+    width: 4px;
+    height: 4px;
+    background: #f6f0c1;
+    border-radius: 50%;
+    filter: blur(1px) drop-shadow(0 0 5px #f6f0c1);
+  }
+  
+  /* Folhas e pétalas (usando emoji ou SVG) */
+  .leaf, .petal {
+    font-size: 1.2rem;
+    user-select: none;
+  }
+  
+  .leaf { color: #42b883; } /* Verde */
+  .petal { color: #ff9ff3; } /* Rosa */
+  
+  /* Animações */
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    20%, 80% { opacity: 0.8; }
+  }
+  
+  @keyframes float {
+    to {
+      transform: 
+        translate(
+          calc(var(--move-x) * 1vw),
+          calc(var(--move-y) * 1vh)
+        )
+        rotate(var(--rotate));
+    }
+  }
 
 .input-group {
     position: relative;

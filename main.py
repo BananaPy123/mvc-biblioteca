@@ -13,6 +13,7 @@ app.config['MYSQL_DB'] = 'mvc'
 init_app(app)
 lm = LoginManager()
 
+#função pra colocar os dados do cadasto no banco de dados
 def cadastrar_professor(nome, email, cpf, senha_md5):
     conexao = None
     cursor = None
@@ -31,6 +32,7 @@ def cadastrar_professor(nome, email, cpf, senha_md5):
         if conexao:
             conexao.close()
 
+#função pra pegar os dados no banco de dados e processar o login
 def verificar_login(email, senha):
     conexao = None
     cursor = None
@@ -48,6 +50,7 @@ def verificar_login(email, senha):
         if conexao:
             conexao.close()
 
+#função pra fazer o login
 def login_professor():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -64,12 +67,15 @@ def login_professor():
 
     return render_template('login.html')
 
+
+#rotas
 @app.route("/")
 def index():
     return render_template('index.html')
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    #aqui chamei a função declarada na linha 54
     return login_professor()
 
 @app.route('/cadastro', methods=['GET', 'POST'])
@@ -82,8 +88,10 @@ def cadastro():
         senha = request.form.get('senha')
         senha_md5 = hashlib.md5(senha.encode()).hexdigest()
 
+        #aqui chamei a função declarada na linha 17
         cadastrar_professor(nome, email, cpf, senha_md5)
 
+        #redirecionar pra página de login se o cadastro for realizado
         return redirect(url_for('login'))
     return render_template('cadastro.html')
 
