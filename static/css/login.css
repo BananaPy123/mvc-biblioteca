@@ -1,0 +1,247 @@
+/* Seus estilos atuais permanecem aqui... */
+
+/* ========== MEDIA QUERIES ========== */
+
+/* Para tablets e telas médias (768px a 1024px) */
+@media screen and (max-width: 1024px) {
+    .quadro {
+        width: 18em;
+        height: 23em;
+    }
+
+    #mvc-logo {
+        width: 10em;
+    }
+
+    .input-group {
+        margin: 15px 0;
+    }
+}
+
+/* Para smartphones em modo paisagem (576px a 767px) */
+@media screen and (max-width: 767px) {
+    body {
+        background-attachment: fixed;
+        /* Evita problemas com o background */
+    }
+
+    .quadro {
+        width: 16em;
+        height: 22em;
+        padding: 15px 8px;
+    }
+
+    .input-group input {
+        padding: 12px 8px 5px 8px;
+        font-size: 14px;
+    }
+
+    .input-group label {
+        font-size: 14px;
+    }
+
+    .btn-cadastro,
+    .btn-entrar {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* Para smartphones em modo retrato (até 575px) */
+@media screen and (max-width: 575px) {
+    .quadro {
+        width: 85%;
+        /* Usa porcentagem para melhor adaptação */
+        max-width: 16em;
+        height: auto;
+        min-height: 22em;
+        padding: 20px 15px;
+    }
+
+    #mvc-logo {
+        width: 9em;
+        margin-bottom: 5px;
+    }
+
+    .input-group {
+        margin: 12px 0;
+    }
+
+    .input-group input {
+        padding: 10px 8px 4px 8px;
+    }
+
+    .input-group label {
+        font-size: 13px;
+    }
+
+    .input-group input:focus+label,
+    .input-group input:valid+label {
+        font-size: 12px;
+    }
+}
+
+/* Para telas muito pequenas (até 360px) */
+@media screen and (max-width: 360px) {
+    .quadro {
+        width: 90%;
+        padding: 15px 10px;
+    }
+
+    #mvc-logo {
+        width: 8em;
+    }
+
+    .btn-cadastro,
+    .btn-entrar {
+        padding: 7px;
+        font-size: 13px;
+    }
+}
+
+/* Para telas grandes (acima de 1200px) */
+@media screen and (min-width: 1200px) {
+    .quadro {
+        width: 22em;
+        height: 28em;
+    }
+
+    #mvc-logo {
+        width: 14em;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* importante para centralização vertical */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imagens/biblioteca-img.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FFFFF0;
+    font-family: 'Segoe-UI', sans-serif;
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.quadro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* ou center se quiser tudo centralizado no quadro */
+    text-align: center;
+    width: 20em;
+    height: 25em;
+    background-color: rgba(0, 31, 16, 0.4);
+    backdrop-filter: blur(6px);
+    z-index: 1;
+    padding: 20px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#mvc-logo {
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 12em;
+    /* ou outro tamanho desejado */
+    height: auto;
+    z-index: 1;
+    position: relative;
+    opacity: 1;
+}
+
+.titulo-login {
+    margin-bottom: 10px;
+    color: #0e8d47;
+}
+
+.input-group {
+    position: relative;
+    margin: 20px 0;
+    z-index: 1;
+    /* garantir que os inputs fiquem acima da imagem */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 10px 6px 10px;
+    font-size: 16px;
+    border: 2px solid #0e8d47;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s ease;
+    background: transparent;
+    color: #0e8d47;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.input-group label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0e8d47;
+    font-size: 16px;
+    pointer-events: none;
+    padding: 0 5px;
+    transition: 0.2s ease;
+    z-index: 3;
+}
+
+.input-group input:focus {
+    border-color: #175533;
+    border-radius: 10px;
+}
+
+.input-group input:focus+label,
+.input-group input:valid+label {
+    top: -8px;
+    left: 8px;
+    font-size: 13px;
+    color: #0e8d47;
+}
+
+.btn-cadastro,
+.btn-entrar {
+    width: 100%;
+    /* mesmo tamanho dos inputs */
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background-color: #3CB371;
+    border: 2px solid #3CB371;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    /* separação entre os botões */
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    display: block;
+    /* garante que fiquem um embaixo do outro */
+    box-sizing: border-box;
+}
+
+.btn-cadastro:hover,
+.btn-entrar:hover {
+    background-color: #0e8d47;
+    border-color: #175533;
+    transform: scale(1.02);
+}
