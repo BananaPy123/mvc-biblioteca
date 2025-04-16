@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+</head>
+<style>
+    body {
+        background-color: #1C1C1C;
+        color: whitesmoke;
+    }
+</style>
+
+<body>
+    <form action="/cadastrar_aluno" method="POST">
+        <h1>CADASTRAR ALUNO</h1>
+        <br>
+        <label for="nome">NOME</label> <br>
+        <input type="text" name="nome" required>
+        <br>
+        <label for="serie">SERIE</label><br>
+        <input type="text" name="serie" required>
+        <br>
+        <label for="email">EMAIL</label><br>
+        <input type="text" name="email" required>
+        <br>
+        <label for="senha">SENHA</label>
+        <input type="password" name="senha" required>
+        <br>
+        <button type="submit">CADASTRAR</button>
+    </form>
+</body>
+
+</html>

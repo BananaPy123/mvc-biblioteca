@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros</title>
+</head>
+<style>
+    body {
+        background-color: #1C1C1C;
+        color: whitesmoke;
+    }
+</style>
+<body>
+    <ul>
+        {% for livro in livros %}
+            <li>
+                {{ livro[1] }} - {{ livro[2] }}
+                <a href="{{ url_for('editar_livro', id_livro=livro[0]) }}">Editar</a> |
+                <a href="{{ url_for('deletar_livro', id_livro=livro[0]) }}" onclick="return confirm('Deseja deletar este livro?')">Deletar</a>
+            </li>
+        {% endfor %}
+    </ul>    
+</body>
+</html>

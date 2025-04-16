@@ -1,0 +1,31 @@
+Comandos SQL
+
+Criar uma tabela:
+CREATE TABLE nome_tabela;
+
+Renomear uma tabela
+ALTER TABLE nome_tabela RENAME TO novo_nome;
+
+Selecionar todas as colunas e linhas de uma tabela
+SELECT * FROM nome_tabela;
+
+Selecionar apenas colunas específicas de uma tabela
+SELECT nome_coluna1, nome_coluna2, nome_coluna3 FROM nome_tabela;
+
+Selecionar colunas específicas e dar um nome para essas colunas
+SELECT
+    col1 as "coluna 1"
+    col2 as "coluna 2"
+FROM nome_tabela;
+
+Selecionar apenas as primeiras linhas de uma tabela
+SELECT * FROM nome_tabela LIMIT 4;
+
+Ordenar uma tabela a partir de uma determinada coluna
+Ordem Crescente:
+SELECT * FROM nome_tabela ORDER BY nome_coluna;
+Ordem Descrescente:
+SELECT * FROM nome_tabela ORDER BY nome_coluna DESC;
+
+
+flash: Usei pra mostrar mensagem de login inválido na tela do usuário

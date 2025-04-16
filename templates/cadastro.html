@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVC Cadastro</title>
+    <link rel="stylesheet" href="../static/css/cadastro.css">
 </head>
+
 <body>
-    <form action="/cadastro" method="POST">
-        <label for="nome">NOME COMPLETO:</label>
-        <br>
-        <input type="text" name="nome" placeholder="nome completo" required>
-        <br>
-        <label for="email">EMAIL:</label>
-        <br>
-        <input type="text" name="email" placeholder="exemplo@gmail.com" required>
-        <br>
-        <label for="cpf">CPF:</label>
-        <br>
-        <input type="text" name="cpf" placeholder="xxx.xxx.xxx-xx" required>
-        <br>
-        <label for="senha">SENHA:</label>
-        <br>
-        <input type="text" name="senha" placeholder="senha" required>
-        <br>
-        <button type="submit"></button>
-    </form>
+    <script src="../static/js/particulas.js"></script>
+    <div class="magic-particles" id="magicParticles"></div>
+
+    <div class="overlay"></div>
+    <div class="quadro">
+        <img src="../static/imagens/mvc-logo.png" alt="mvc-logo" id="mvc-logo">
+        <form action="/cadastro" method="POST">
+            <h1 class="titulo-cadastro">CADASTRO</h1>
+            <div class="input-group">
+                <input type="text" name="nome" required>
+                <label for="nome">NOME COMPLETO</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="email" required>
+                <label for="email">EMAIL</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="cpf" required>
+                <label for="cpf">CPF</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="senha" required>
+                <label for="senha">SENHA</label>
+            </div>
+            <button type="submit" class="btn-cadastro">CADASTRAR</button>
+        </form>
+    </div>
 </body>
+
 </html>

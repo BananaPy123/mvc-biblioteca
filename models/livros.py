@@ -13,10 +13,11 @@ def buscar_livro_google(titulo):
             resultado = {
                 'titulo': livro.get('title', 'Sem título'),
                 'autor': ', '.join(livro.get('authors', ['Desconhecido'])),
+                'data': livro.get('publishedDate', 'Sem data'),
                 'isbn': next((isbn['identifier'] for isbn in livro.get('industryIdentifiers', []) if isbn['type'] == 'ISBN_13'), 'Sem ISBN'),
                 'descricao': livro.get('description', 'Sem descrição disponível'),
-                'link': livro.get('previewLink', 'Sem link de visualização'),
-                'imagem': livro.get('imageLinks', {}).get('thumbnail', ''),
+                # 'link': livro.get('previewLink', 'Sem link de visualização'),
+                'imagem': livro.get('imageLinks', {}).get('thumbnail', '')
             }
 
             return resultado

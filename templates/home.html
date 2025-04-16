@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAINEL PROFESSOR</title>
 </head>
+<style>
+    body {
+        background-color: #1C1C1C;
+        color: whitesmoke;
+    }
+</style>
+
 <body>
+    <a href="{{url_for('cadastrar_aluno')}}">CADASTRAR ALUNO</a><br>
+    <a href="{{url_for('lista_alunos')}}">LISTA DE ALUNOS CADASTRADOS</a><br>
+    <a href="{{url_for('lista_livros')}}">LISTA DE LIVROS CADASTRADOS</a><br>
     <a href="/buscar_livro">Buscar livros</a>
 </body>
+
 </html>
