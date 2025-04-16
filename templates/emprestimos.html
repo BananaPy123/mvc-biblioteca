@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Empréstimo</title>
+</head>
+<body>
+    <h1>Registrar Empréstimo</h1>
+
+    <form method="POST" action="/emprestimos">
+        <label for="aluno">Selecione o aluno:</label><br>
+        <select name="aluno" id="aluno" required>
+            <option value="">-- Escolha um aluno --</option>
+            {% for aluno in alunos %}
+                <option value="{{ aluno.id_aluno }}">{{ aluno.nome }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="livro">Selecione o livro:</label><br>
+        <select name="livro" id="livro" required>
+            <option value="">-- Escolha um livro --</option>
+            {% for livro in livros %}
+                <option value="{{ livro.id_livro }}">{{ livro.titulo }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="data_devolucao">Data de Devolução (opcional):</label><br>
+        <input type="date" name="data_devolucao" id="data_devolucao"><br><br>
+
+        <button type="submit">Registrar Empréstimo</button>
+    </form>
+</body>
+</html>

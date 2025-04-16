@@ -1,0 +1,218 @@
+/* ===== ESTILOS GERAIS ===== */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imagens/biblioteca-img2.png);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FFFFF0;
+    font-family: 'Segoe-UI', sans-serif;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+/* ===== ESTILOS DO DASHBOARD ===== */
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 30px;
+}
+
+.dashboard-card {
+    background-color: rgba(0, 31, 16, 0.4);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 180px;
+    /* border: 1px solid rgba(14, 141, 71, 0.3); */
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(14, 141, 71, 0.6);
+}
+
+.dashboard-card a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dashboard-card i {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #3CB371;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #3CB371;
+}
+
+.dashboard-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ========== MEDIA QUERIES ========== */
+
+/* Para telas grandes (acima de 1200px) */
+@media screen and (min-width: 1200px) {
+    .dashboard-card {
+        min-height: 200px;
+    }
+    
+    .dashboard-card i {
+        font-size: 40px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Para tablets e telas médias (768px a 1024px) */
+@media screen and (max-width: 1024px) {
+    .dashboard-container {
+        gap: 20px;
+        padding: 25px;
+    }
+    
+    .dashboard-card {
+        min-height: 170px;
+        padding: 20px;
+    }
+    
+    .dashboard-card i {
+        font-size: 32px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Para tablets pequenos e smartphones em modo paisagem (576px a 767px) */
+@media screen and (max-width: 767px) {
+    .dashboard-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .dashboard-card {
+        min-height: 160px;
+        padding: 18px;
+    }
+    
+    .dashboard-card a {
+        font-size: 16px;
+    }
+    
+    .dashboard-card i {
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .dashboard-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Para smartphones em modo retrato (até 575px) */
+@media screen and (max-width: 575px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 15px;
+    }
+    
+    .dashboard-card {
+        min-height: 140px;
+        padding: 15px;
+    }
+    
+    .dashboard-card a {
+        font-size: 15px;
+    }
+    
+    .dashboard-card i {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 1.6rem;
+        margin-bottom: 5px;
+    }
+    
+    .dashboard-header p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Para telas muito pequenas (até 360px) */
+@media screen and (max-width: 360px) {
+    .dashboard-container {
+        padding: 10px;
+    }
+    
+    .dashboard-card {
+        min-height: 130px;
+        padding: 12px;
+    }
+    
+    .dashboard-card a {
+        font-size: 14px;
+    }
+    
+    .dashboard-card i {
+        font-size: 26px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 1.4rem;
+    }
+}

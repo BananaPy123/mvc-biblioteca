@@ -1,23 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAINEL PROFESSOR</title>
+    <title>PAINEL PROFESSOR - MVC Biblioteca</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <!-- Adicionando Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<style>
-    body {
-        background-color: #1C1C1C;
-        color: whitesmoke;
-    }
-</style>
 
 <body>
-    <a href="{{url_for('cadastrar_aluno')}}">CADASTRAR ALUNO</a><br>
-    <a href="{{url_for('lista_alunos')}}">LISTA DE ALUNOS CADASTRADOS</a><br>
-    <a href="{{url_for('lista_livros')}}">LISTA DE LIVROS CADASTRADOS</a><br>
-    <a href="/buscar_livro">Buscar livros</a>
+    <!-- Overlay e partículas (mesmo efeito da página de login) -->
+    <div class="overlay"></div>
+    <div class="magic-particles" id="particles-js"></div>
+    
+    <!-- Container principal do dashboard -->
+    <div class="quadro" style="width: 90%; max-width: 1200px; height: auto; min-height: 80vh; padding: 40px 20px;">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-chalkboard-teacher"></i> Painel do Professor</h1>
+            <p>Gerencie sua biblioteca escolar</p>
+        </div>
+        
+        <div class="dashboard-container">
+            <!-- Card Cadastrar Aluno -->
+            <div class="dashboard-card">
+                <a href="{{url_for('cadastrar_aluno')}}">
+                    <i class="fas fa-user-plus"></i>
+                    Cadastrar Aluno
+                </a>
+            </div>
+            
+            <!-- Card Lista de Alunos -->
+            <div class="dashboard-card">
+                <a href="{{url_for('lista_alunos')}}">
+                    <i class="fas fa-users"></i>
+                    Alunos Cadastrados
+                </a>
+            </div>
+            
+            <!-- Card Lista de Livros -->
+            <div class="dashboard-card">
+                <a href="{{url_for('lista_livros')}}">
+                    <i class="fas fa-book"></i>
+                    Livros Cadastrados
+                </a>
+            </div>
+            
+            <!-- Card Novo Empréstimo -->
+            <div class="dashboard-card">
+                <a href="{{url_for('emprestimos')}}">
+                    <i class="fas fa-hand-holding"></i>
+                    Novo Empréstimo
+                </a>
+            </div>
+            
+            <!-- Card Empréstimos Cadastrados -->
+            <div class="dashboard-card">
+                <a href="{{url_for('lista_emprestimos')}}">
+                    <i class="fas fa-clipboard-list"></i>
+                    Empréstimos Ativos
+                </a>
+            </div>
+            
+            <!-- Card Buscar Livros -->
+            <div class="dashboard-card">
+                <a href="/buscar_livro">
+                    <i class="fas fa-search"></i>
+                    Buscar Livros
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para partículas (opcional) -->
+    <script>
+        // Criando partículas simples (pode ser substituído por uma biblioteca como particles.js)
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles-js');
+            const particleTypes = ['firefly', 'leaf', 'petal'];
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = `particle ${particleTypes[Math.floor(Math.random() * particleTypes.length)]}`;
+                
+                // Posição aleatória
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Animação personalizada
+                particle.style.setProperty('--move-x', (Math.random() - 0.5) * 20);
+                particle.style.setProperty('--move-y', (Math.random() - 0.5) * 20);
+                particle.style.setProperty('--rotate', `${Math.random() * 360}deg`);
+                particle.style.animation = `float ${8 + Math.random() * 12}s infinite ease-in-out`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Busca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1C1C1C;
+            color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .book-card {
+            background-color: #2C2C2C;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #444;
+        }
+
+        .book-cover {
+            max-width: 150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cadastrar {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Resultado da Busca</h1>
+            <a href="{{ url_for('home') }}" class="btn btn-outline-secondary">Voltar</a>
+        </div>
+
+        <!-- Mensagens de flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <!-- Seção de busca -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('buscar_livro_google') }}">
+                    <div class="input-group">
+                        <input type="text" name="titulo" class="form-control" placeholder="Digite o título do livro"
+                            required value="{{ request.form.get('titulo', '') }}">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Resultados -->
+        {% if livro %}
+        <div class="book-card">
+            <div class="row">
+                {% if livro.imagem %}
+                <div class="col-md-3 text-center">
+                    <img src="{{ livro.imagem }}" alt="Capa do livro" class="book-cover img-fluid mb-3">
+                </div>
+                {% endif %}
+
+                <div class="{% if livro.imagem %}col-md-9{% else %}col-12{% endif %}">
+                    <h3>{{ livro.titulo }}</h3>
+                    <p><strong>Autor:</strong> {{ livro.autor }}</p>
+                    <p><strong>Ano de Publicação:</strong> {{ livro.data }}</p>
+                    <p><strong>ISBN:</strong> {{ livro.isbn }}</p>
+                    <p><strong>Descrição:</strong> {{ livro.descricao }}</p>
+
+                    <form method="POST" action="{{ url_for('cadastrar_livro') }}">
+                        <!-- Campos ocultos com os dados do livro -->
+                        <input type="hidden" name="titulo" value="{{ livro.titulo }}">
+                        <input type="hidden" name="autor" value="{{ livro.autor }}">
+                        <input type="hidden" name="isbn" value="{{ livro.isbn }}">
+                        <input type="hidden" name="descricao" value="{{ livro.descricao }}">
+                        <input type="hidden" name="capa" value="{{ livro.imagem }}">
+                        <input type="hidden" name="data_publicacao" value="{{ livro.data }}">
+
+                        <button type="submit" class="btn btn-primary btn-cadastrar">
+                            <i class="bi bi-bookmark-plus"></i> Cadastrar Livro
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% elif request.method == 'POST' %}
+        <div class="alert alert-warning">
+            Nenhum livro encontrado com os critérios de busca.
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

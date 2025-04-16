@@ -1,4 +1,5 @@
 import MySQLdb
+from MySQLdb.cursors import DictCursor  # 👈 importa o cursor dicionário
 
 app = None
 
@@ -13,5 +14,6 @@ def get_db():
         passwd=app.config['MYSQL_PASSWORD'],
         db=app.config['MYSQL_DB']
     )
-    cursor = conexao.cursor()
+    cursor = conexao.cursor(DictCursor)  # 👈 ativa o dicionário aqui
     return conexao, cursor
+
